@@ -1,15 +1,10 @@
 var olArticles;
 var liArticleList;
 var numberOfArticles = 2
-
-// var kieranAPIKey = "decae5c6-eb72-4249-9f39-1d56866c78ef";
 var hideLower = $(".startHide");
 var confirmedTodayEl = $(".confirmed");
 var percentagePositiveEl = $(".positive");
 var deathsEl = $(".deaths");
-// var apiKey = "9d2908c81003444ea908c81003b44ed4";
-
-
 
 hideLower.hide();
 
