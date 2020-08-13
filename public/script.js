@@ -1,15 +1,15 @@
 var olArticles;
 var liArticleList;
 var numberOfArticles = 2
-var currentDate = moment().format('YYYY-MM-DD');
-var kieranAPIKey = "decae5c6-eb72-4249-9f39-1d56866c78ef";
+
+// var kieranAPIKey = "decae5c6-eb72-4249-9f39-1d56866c78ef";
 var hideLower = $(".startHide");
 var confirmedTodayEl = $(".confirmed");
 var percentagePositiveEl = $(".positive");
 var deathsEl = $(".deaths");
-var apiKey = "9d2908c81003444ea908c81003b44ed4";
+// var apiKey = "9d2908c81003444ea908c81003b44ed4";
 
-var queryArticles = "https://content.guardianapis.com/search?to-date=" + currentDate + "&order-by=newest&section=us-news&q=coronavirus&api-key=" + kieranAPIKey;
+
 
 hideLower.hide();
 
@@ -18,11 +18,11 @@ $("#searchBtn").on("click", function (event) {
     hideLower.show();
     var zipCode = $("#zipCode").val();
  
-    var queryURL = "https://api.weather.com/v3/wx/disease/tracker/county/60day?postalKey=" + zipCode + ":US&format=json&apiKey=" + apiKey;
+  
 
     // First AJAX Function Coded by Kurt and Kieran
     $.ajax({
-        url: queryURL,
+        url: "/api/covid/" + zipCode,
         method: 'GET',
     }).then(function(response) {
         var confirmedToday = response.covid19.confirmed[0];
@@ -140,7 +140,7 @@ $("#searchBtn").on("click", function (event) {
 // Second Ajax Function coded by Kurt
 function newsCall() {
     $.ajax({
-        url: queryArticles,
+        url: "/api/guardian",
         method: "GET",
   
     }).then (function(result) {
