@@ -13,9 +13,6 @@ $("#searchBtn").on("click", function (event) {
     hideLower.show();
     var zipCode = $("#zipCode").val();
  
-  
-
-    // First AJAX Function Coded by Kurt and Kieran
     $.ajax({
         url: "/api/covid/" + zipCode,
         method: 'GET',
@@ -28,7 +25,6 @@ $("#searchBtn").on("click", function (event) {
         confirmedTodayEl.text("Confirmed Cases in " + county + ": " + confirmedToday);
         percentagePositiveEl.text("Percentage of Tests Positive in " + county + ": " + percentagePositive);
         deathsEl.text("Reported Deaths in " + county + ": " + deaths);
-        // chart.js code by Kieran
         var ctx = document.getElementById("casesChart").getContext("2d");
         var confirmedCases = (response.covid19.confirmed).reverse();
         var orgCasesLabels = (response.covid19.dateReport).reverse();
@@ -38,10 +34,7 @@ $("#searchBtn").on("click", function (event) {
         }
 
         var chart = new Chart(ctx, {
-        // The type of chart we want to create
         type: 'line',
-
-        // The data for our dataset
         data: {
             labels: newCasesLabels,
             datasets: [{
@@ -55,7 +48,6 @@ $("#searchBtn").on("click", function (event) {
             }]
         },
 
-        // Configuration options go here
         options: {}
         });
 
@@ -113,8 +105,7 @@ $("#searchBtn").on("click", function (event) {
 
             }
         })
-            // input sources of data for each COVID Data call coded by Kieran
-            // created sources div and appended them into HTML. Separated by comma where within if/else statement
+
             var sources = response.covid19.source;
             var sourcesDiv = $("<div>");
             var sourcesP = $("<p>");
@@ -132,7 +123,7 @@ $("#searchBtn").on("click", function (event) {
     });
     newsCall();
 });
-// Second Ajax Function coded by Kurt
+
 function newsCall() {
     $.ajax({
         url: "/api/guardian",
@@ -148,30 +139,30 @@ function newsCall() {
             var newPubDate = pubDate.substring(0,10);
             var webUrl = result.response.results[i].webUrl;
 
-            // Facebook Sharing - by Kurt
+            // Facebook Sharing
             var facebookLink = $("<a>").addClass("icon content mt-4 mb-4").attr("target", "_blank").attr("href", "https://www.facebook.com/sharer/sharer.php?u=" + webUrl)
             var facebookIcon = $("<i>");
             facebookIcon.addClass("fa fa-facebook-official");
             facebookLink.append(facebookIcon);
 
-            // Twitter Sharing - by Kurt
+            // Twitter Sharing
             var twitterLink = $("<a>").addClass("icon content").attr("target", "_blank").attr("href","https://twitter.com/home?status=" + webUrl);
             var twitterIcon = $("<i>");
             twitterIcon.addClass("fa fa-twitter mb-0");
             twitterLink.append(twitterIcon);
 
-            // email icon - by Brianna
+            // email icon
             var email = $("<a>").addClass("icon content").attr("target", "_blank").attr("href", "mailto:info@example.com?&subject=&body=" + webUrl); 
             var emailIcon = newEI.addClass("fa fa-envelope mb-0");
             email.append(emailIcon);
 
-            // LinkedIn Sharing - by Kurt
+            // LinkedIn Sharing
             var linkedInLink = $("<a>").addClass("icon").attr("href", "https://www.linkedin.com/shareArticle?mini=true&url=" + webUrl);
             var linkedInIcon = $("<i>");
             linkedInIcon.addClass("fa fa-linkedin");
             linkedInLink.append(linkedInIcon);
             
-            // create tile elements in HTML - by Brianna
+            // create tile elements in HTML
             var longTile = $("<div>").addClass("tile is-vertical");
             var middleTile = $("<div>").addClass("tile");
             longTile.append(middleTile);
@@ -179,7 +170,7 @@ function newsCall() {
             var dateP = $("<p>").addClass("subtitle ml-4").text(newPubDate);
             var urlA = $("<a>").addClass("content color").attr("target", "_blank").attr("href", webUrl).text(webUrl);
 
-            // tile container elements - by Brianna
+            // tile container elements
             var levelContainer = $("<div>").addClass("level").attr("id", "levelers");
             var s1 = $("<section>").addClass("level-item").append(facebookLink);
             var s2 = $("<section>").addClass("level-item").append(twitterLink);
@@ -190,7 +181,7 @@ function newsCall() {
             var tile = $("<div>").addClass("tile is-parent");
             var art = $("<article>").addClass("tile is-child box");
 
-            // append icons - by Brianna
+            // append icons
             art.append(newItem, dateP, urlA, levelContainer);
             tile.append(art);
             middleTile.append(tile);
@@ -200,7 +191,7 @@ function newsCall() {
     });
 }
 
-// tab code taken from Bulma CSS Framework
+
 let tabsWithContent = (function () {
     let tabs = document.querySelectorAll('.tabs li');
     let tabsContent = document.querySelectorAll('.tab-content');
