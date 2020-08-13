@@ -48,9 +48,7 @@ $("#searchBtn").on("click", function (event) {
             }]
         },
 
-        options: {
-            maintainAspectRatio: false
-        }
+        options: {}
         });
 
         var deathsVisual = document.getElementById('deathsChart').getContext('2d');
@@ -78,9 +76,6 @@ $("#searchBtn").on("click", function (event) {
                     data: confirmedCases,
                     order: 2
                 }]
-            },
-            options: {
-                maintainAspectRatio: false
             }
         })
 
@@ -107,9 +102,7 @@ $("#searchBtn").on("click", function (event) {
                     data: confirmedCases,
                     order: 2
                 }]
-            },
-            options: {
-                maintainAspectRatio: false
+
             }
         })
 
