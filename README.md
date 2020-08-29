@@ -6,28 +6,16 @@ For this project, we wanted to give the user the ability to search a location an
 
 Utilizing zip codes, users can search a specific location to better understand COVID-19 cases within that area. 
 
-![Search-Photo](/Assets/search.png)
-
 Using The Weather Company’s Disease Tracker API, we are able to pull in COVID-19 data and statistics from the user’s searched location. We built the API call to present the user with the following metrics:
 1. Cases confirmed
 2. Deaths confirmed
 3. No. of Tests performed
 4. No. of Tests positive 
 
-Data is shown in a chart like the below:
-![Chart-Photo](/Assets/results1.png)
-
-
 In addition, we are able to surface the latest COVID-19 related news articles by utilizing The Guardian’s news API. We present the articles below the disease data and the user is able to share these on their favorite Social Media site. 
-![Articles-Photo](/Assets/articles.png)
-
-In the first photo, you can see two streams of data displaying.
-
-![DataOn-Photo](/Assets/testpositive.png)
 
 If the user chooses, then either of the two streams of data can be toggled off so that only one line of data displays at a time. The user may do this by clicking the title for that line above the chart. It will strikethrough and disappear from the graph, until clicked again.
 
-![DataOff-Photo](/Assets/crossedoff.png)
 
 
 
