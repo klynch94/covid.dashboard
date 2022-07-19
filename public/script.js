@@ -12,7 +12,7 @@ $("#searchBtn").on("click", function (event) {
     event.preventDefault();
     hideLower.show();
     var zipCode = $("#zipCode").val();
-    alert("I am an alert box!");
+    alert("This API is depreciated and no longer publicly accessible. No Covid-19 data will be displayed in the below charts. Thank you.");
  
     $.ajax({
         url: "/api/covid/" + zipCode,
