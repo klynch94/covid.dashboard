@@ -12,6 +12,7 @@ $("#searchBtn").on("click", function (event) {
     event.preventDefault();
     hideLower.show();
     var zipCode = $("#zipCode").val();
+    alert("I am an alert box!");
  
     $.ajax({
         url: "/api/covid/" + zipCode,
